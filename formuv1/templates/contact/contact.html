@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock title %}
+{% block content %}
+{% load static %} 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+ 
+    <h1>Deposit your Dataset</h1>
+  
+     {% if submitted %}
+        <p class="success">
+         Your Dataset was submitted successfully. Thank you.
+        </p>
+     
+     {% else %}
+     
+         {% if validado %}
+     
+       <form action="" method="post" novalidate enctype="multipart/form-data">
+       <table>
+         {{ form.as_table }}
+         <tr>
+           <td>&nbsp;</td>
+           <td><input type="submit" value="Submit"></td>
+         </tr>
+       </table>
+       {% csrf_token %}
+       </form>
+       
+           {% else %}
+      
+                <form action="" method="post" novalidate enctype="multipart/form-data">
+                <table>
+                    {{ acessoerro }}
+                     {{ vali.as_p }}
+                     <b>Entre com o número do processo no formato dddddd/aaaa-v</b>
+
+                <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Acessar"></td>
+                </tr>
+                </table>
+                {% csrf_token %}
+                </form>
+           
+     {% endif %}
+     
+     
+ {% endif %}
+ 
+ {% endblock content %}
+

@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>
+        {% block title %}
+        {{ page_title|default:"Untitled Page" }}
+        {% endblock title %}
+     </title>
+     <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+     <div id="wrapper">
+     <header id="header">
+       <div id="logo"><img src="{% static 'Lattes.png' %}" alt="" /></div>
+     </header>
+     
+    
+     <section id="main">
+       {% block content %}
+       <p>Placeholder text in base template. Replace with page content.</p>
+       {% endblock content %}
+     </section>
+     <footer id="footer">
+       <script type="text/JavaScript">
+       document.write(new Date().getFullYear());
+       </script> Dataverse Lattes Data
+     </footer>
+     </div>
+   </body>
+ </html>

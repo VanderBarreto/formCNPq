@@ -1,0 +1,47 @@
+<html>
+	<body>
+		<!--Página HTML//--> 
+		<script type="text/javascript">
+						
+        		
+var processo = prompt("Entre com o número do processo no formato dddddd/aaaa-v");
+var L = processo.length
+
+if (L == 13) { 
+
+// document.write("<br>" + L + "<br>");
+var Dig = [];
+var i
+var j
+var DV
+var DVC
+
+j=0
+for (i = 0; i < 10; i++) {
+	if (i<6) {
+		j=j+1
+		Dig[j]=processo.substring(i,i+1)
+		 } else {j=j+1;
+			 Dig[j]=processo.substring(i+1,i+2);
+			};
+
+// document.write( "<br>" +"Dig"+j+"= " + Dig[j] + "<br>"); 
+}
+// document.write("<br>" + Dig.length);
+DV = processo.substring(12,13);
+// document.write( "<br>" + DV + "<br>");
+
+DVC = 11 - (Dig[1] * 9 + Dig[2] * 8 + Dig[3] * 7 + Dig[4] * 6 + Dig[5] * 5 + Dig[6] * 4 + Dig[7] * 0 + Dig[8] * 0 + Dig[9] * 3 + Dig[10] * 2) % 11
+
+if (DVC == 10 || DVC == 11) {DVC = 0}; 
+
+// document.write (DVC)
+
+if (DV != DVC) {document.write("<br>" + "Número de processo inválido" + "<br>")} else {document.write(processo)};
+
+} else {document.write("O processo tem que ter 13 caracteres no formato dddddd/dddd-d")}
+			
+		</script>
+
+	</body>
+</html>
